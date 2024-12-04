@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'nov27';
+  currentPage: any = "home";
+
+  pageHasBeenChanged(page: string) {
+    this.currentPage = page;
+  }
 }

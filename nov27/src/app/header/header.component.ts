@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output, SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -6,5 +6,23 @@ import { Component } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
+  home: string = "Home"
+
+  @Input() item = "Hello";
+  @Input() currentPage!: string;
+  @Output() pageChanged = new EventEmitter<string>();
+
+  constructor(){  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log(this.currentPage);
+  }
+
+  ngOnInit(): void {  }
+
+  changePage(page: string) {
+    this.currentPage = page;
+    this.pageChanged.emit(page);
+  }
 
 }
