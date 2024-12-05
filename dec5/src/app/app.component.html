@@ -1,0 +1,36 @@
+<!-- <<div *ngIf =  "currentPage = 'home"> -->
+<app-header [currentPages]="currentPages" [loginDetails]="currentUserDetails"  (pageChanged)="pageHasBeenChanged($event)"></app-header>
+
+<div *ngIf="currentPages == 'telephsic'">
+  <h2>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate amet unde exercitationem perspiciatis consectetur labore minima sed quos veritatis corrupti, ducimus eaque quae? Dolore, deserunt corporis molestias autem ex excepturi!  
+  </h2>
+</div>
+
+<ng-container *ngIf="currentPages == 'loginPage'">
+<app-login (loginDetails)="loginData($event)"> </app-login>
+</ng-container>
+
+
+<ng-container *ngIf="currentPages == 'left_Side'">
+  <app-left-side></app-left-side>
+</ng-container>
+
+<ng-container *ngIf="currentPages == 'right_Side'">
+  <app-right-side></app-right-side>
+</ng-container>
+
+<ng-container *ngIf="currentPages == 'dropdown'">
+  <app-dropdown></app-dropdown>
+</ng-container>
+
+<ng-container *ngIf="currentPages == 'no_Side'">
+  <app-no-side></app-no-side>
+</ng-container>
+<app-footer [data]="currentPages"></app-footer>
+<!-- <router-outlet></router-outlet> -->
+
+<!-- </div> -->
+<!-- </div> -->
+<!-- <app-sign-up></app-sign-up> -->
+<!-- <app-login></app-login> -->
