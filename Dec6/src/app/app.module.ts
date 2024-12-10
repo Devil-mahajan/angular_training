@@ -1,3 +1,4 @@
+
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -18,7 +19,10 @@ import { SavingComponent } from './components/saving/saving.component';
 import { InfoComponent } from './components/info/info.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MainComponent } from './components/main/main.component';
-// import { MainComponent } from './components/main/main.component';
+import { HttpClientModule } from '@angular/common/http';
+
+
+
 
 @NgModule({
   declarations: [
@@ -26,7 +30,7 @@ import { MainComponent } from './components/main/main.component';
     HeaderComponent,
     FooterComponent,
     LayoutComponent,
-  
+
     ShopComponent,
     WhyUsComponent,
     TestimonialComponent,
@@ -37,12 +41,17 @@ import { MainComponent } from './components/main/main.component';
     SavingComponent,
     InfoComponent,
     MainComponent,
-    // MainComponent
+
+
+
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    HttpClientModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

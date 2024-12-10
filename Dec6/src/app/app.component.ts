@@ -7,4 +7,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Dec6';
+  image = "https://placehold.co/800x600?text=iPhone+12+Pro"
 }

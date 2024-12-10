@@ -20,7 +20,7 @@
         align-items: center;
     }
 
-    #navbarSupportedContent .navbar-nav .nav-link {
+    .nav-link active {
         margin: 5px 0;
     }
 
