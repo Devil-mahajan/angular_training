@@ -1,0 +1,35 @@
+<body>
+    <header>
+        <div class="logo">
+            {{productDetails.title}}
+        </div>
+
+    </header>
+    <section class="buy">
+        <div class="product-image">
+            <img [src]="productDetails.image" [alt]="productDetails.title">
+        </div>
+        <div class="product-info">
+            <h2>{{productDetails.brand}}</h2>
+            <h1>{{productDetails.style}}</h1>
+            <h2>{{productDetails.price|currency}}</h2>
+
+            <button type="button">Add to Shopping Bag</button>
+        </div>
+    </section>
+    <section class="details">
+        <div class="product-description">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec elementum metus eu scelerisque elementum.
+                Nam laoreet purus lectus, non semper urna dapibus ut.</p>
+        </div>
+        <div class="product-details">
+            <p>Donec lacinia non mauris at rhoncus. Vivamus ut egestas orci, vitae tristique nunc.</p>
+            <ul>
+                <li>Mauris ut condimentum magna.</li>
+                <li>Donec sit amet odio sollicitudin, sagittis tortor id, blandit velit.</li>
+                <li>Mauris ac ex elementum, consequat lectus eget, lobortis metus.</li>
+                <li>Nunc non nisi eget diam accumsan finibus sit amet eget tellus.</li>
+            </ul>
+        </div>
+    </section>
+</body>

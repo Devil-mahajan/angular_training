@@ -20,6 +20,7 @@ import { InfoComponent } from './components/info/info.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MainComponent } from './components/main/main.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ProductDetailsComponent } from './components/product-details/product-details.component';
 
 
 
@@ -41,6 +42,7 @@ import { HttpClientModule } from '@angular/common/http';
     SavingComponent,
     InfoComponent,
     MainComponent,
+    ProductDetailsComponent,
 
 
 

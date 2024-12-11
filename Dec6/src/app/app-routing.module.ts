@@ -8,6 +8,7 @@ import { ContactUsComponent } from './components/contact-us/contact-us.component
 import { LoginComponent } from './components/login/login.component';
 import { MainComponent } from './components/main/main.component';
 import { SavingComponent } from './components/saving/saving.component';
+import { ProductDetailsComponent } from './components/product-details/product-details.component';
 
 const routes: Routes = [{
   path: '', component: LayoutComponent, children: [
@@ -43,6 +44,9 @@ const routes: Routes = [{
    path: 'shop', component: ShopComponent , 
 },
 { path: '', redirectTo: '/shop', pathMatch: 'full' },
+{
+  path:'product/:id',component:ProductDetailsComponent
+}
 ];
 
 @NgModule({

@@ -1,18 +1,30 @@
+
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ShopService {
-  private apiUrl = "https://fakestoreapi.com/products";
-  
+  private shopData = new BehaviorSubject<any[]>([]); // To store and share data across components
 
   constructor(private http: HttpClient) { }
 
-  getProducts(): Observable<any[]> {
-    return this.http.get<any[]>(this.apiUrl);
+  // Fetch data from the API and store it
+  fetchData(apiUrl: string): void {
+    this.http.get<any[]>(apiUrl).subscribe(
+      (data) => {
+        this.shopData.next(data); // Update the BehaviorSubject with new data
+      },
+      (error) => {
+        console.error('Error fetching shop data:', error);
+      }
+    );
   }
 
+  // Retrieve the latest shop data
+  getData(): Observable<any[]> {
+    return this.shopData.asObservable();
+  }
 }

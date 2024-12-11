@@ -1,6 +1,7 @@
+
+import { ShopService } from './../shop.service';
 import { Component, OnInit } from '@angular/core';
-// import { Router } from '@angular/router';
-import { ShopService } from '../shop.service';
+import { Router, Event, NavigationStart } from '@angular/router';
 
 @Component({
   selector: 'app-shop',
@@ -8,35 +9,38 @@ import { ShopService } from '../shop.service';
   styleUrls: ['./shop.component.css']
 })
 export class ShopComponent implements OnInit {
-  shops: any[] = [];
+  shopData: any[] = [];
   displayedShops: any[] = [];
-  isVisible: boolean = false;
 
-  constructor(private nevigateShop: ShopService) { }
-  ngOnInit(): void {
-    // Fetch products from the API using the service
-    this.nevigateShop.getProducts().subscribe(
-      (data) => {
-        this.shops = data;  // stores all products in the shops array,
-        this.displayedShops = this.shops.slice(0, 10)
-      },
-      (error) => {
-        console.error('Error fetching products:', error);
+  constructor(private shopService: ShopService, private router: Router) {
+    this.router.events.subscribe((event: Event) => {
+      if (event instanceof NavigationStart) {
+        console.log('Navigation started:', event.url);
+
+        if (event.url === '/') {
+          this.displayedShops = this.shopData.slice(0, 8);
+        } else if (event.url === '/shop') {
+          this.displayedShops = this.shopData;
+        }
       }
-    );
-  }
-  toogleViewAll(): void {
-    if (this.isVisible) {
-      this.displayedShops = this.shops.slice(0, 10);
-    } else {
-      this.displayedShops = [...this.shops];
-    }
-    this.isVisible = !this.isVisible
-
-
-
+    });
   }
 
+  ngOnInit(): void {
+    const apiUrl = 'https://fakestoreapi.com/products';
+    this.shopService.fetchData(apiUrl); // Fetch data from API
 
+    // Subscribe to the shop data observable
+    this.shopService.getData().subscribe((data) => {
+      this.shopData = data;
+      console.log('Fetched Data:', this.shopData);
 
+      // Set displayed shops based on the current route
+      if (this.router.url === '/') {
+        this.displayedShops = this.shopData.slice(0, 8);
+      } else if (this.router.url === '/shop') {
+        this.displayedShops = this.shopData;
+      }
+    });
+  }
 }
