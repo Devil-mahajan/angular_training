@@ -9,6 +9,7 @@ import { LoginComponent } from './components/login/login.component';
 import { MainComponent } from './components/main/main.component';
 import { SavingComponent } from './components/saving/saving.component';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
+import { PageNotfoundComponent } from './components/page-notfound/page-notfound.component';
 
 const routes: Routes = [{
   path: '', component: LayoutComponent, children: [
@@ -46,6 +47,9 @@ const routes: Routes = [{
 { path: '', redirectTo: '/shop', pathMatch: 'full' },
 {
   path:'product/:id',component:ProductDetailsComponent
+},
+{
+   path: '**', component: PageNotfoundComponent 
 }
 ];
 

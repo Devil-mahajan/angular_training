@@ -21,6 +21,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MainComponent } from './components/main/main.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
+import { PageNotfoundComponent } from './components/page-notfound/page-notfound.component';
 
 
 
@@ -43,6 +44,7 @@ import { ProductDetailsComponent } from './components/product-details/product-de
     InfoComponent,
     MainComponent,
     ProductDetailsComponent,
+    PageNotfoundComponent,
 
 
 

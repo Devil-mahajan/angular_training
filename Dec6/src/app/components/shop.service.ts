@@ -27,4 +27,9 @@ export class ShopService {
   getData(): Observable<any[]> {
     return this.shopData.asObservable();
   }
+  
+  // Fetch a specific product by its ID from the API
+  fetchProductById(apiUrl: string, id: string): Observable<any> {
+    return this.http.get<any>(`${apiUrl}/${id}`);
+  }
 }
