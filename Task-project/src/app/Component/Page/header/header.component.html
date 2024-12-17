@@ -1,0 +1,57 @@
+<header class="header_section">
+ 
+    <nav class="navbar navbar-expand-lg custom_nav-container ">
+        <a class="navbar-brand">
+            <span>
+                Welcome
+            </span>
+            
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class=""></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav active ">
+                <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true }">
+                    <a class="nav-link" routerLinkActive="active" [routerLink]="'/'">Home </a>
+                    <!-- <span class="sr-only">(current)</span> -->
+                </li>
+                <li class="nav-item" routerLinkActive="active">
+                    <a class="nav-link " [routerLink]="'/counter'">
+                        Counter
+                    </a>
+                </li>
+                <li class="nav-item" routerLinkActive="active">
+                    <a class="nav-link" [routerLink]="'/parent'">
+                       To_Do List
+                    </a>
+                </li>
+                <li class="nav-item" routerLinkActive="active">
+                    <a class="nav-link" [routerLink]="'/testimonial'">
+                        Testimonial
+                    </a>
+                </li>
+                <li class="nav-item" routerLinkActive="active">
+                    <a class="nav-link" [routerLink]="'/contact-us'">Contact Us</a>
+                </li>
+                <li class="nav-item" routerLinkActive="active">
+                    <a class="nav-link" [routerLink]="'/saving'">Saving</a>
+                </li>
+            </ul>
+            <div class="user_option" routerLinkActive="active">
+                <a class="nav-link" [routerLink]="['/login']">
+                    <!-- <span>{{name}}</span> -->
+                    Login
+
+
+                </a>
+
+                <form class="form-inline ">
+
+                </form>
+            </div>
+        </div>
+    </nav>
+</header>

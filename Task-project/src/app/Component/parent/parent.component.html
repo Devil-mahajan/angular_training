@@ -1,0 +1,20 @@
+<div class="todo-container">
+    <h1>To-Do List</h1>
+  
+    <!-- Input to add a new task -->
+    <div>
+      <input #newTaskInput type="text" placeholder="Enter a new task" />
+      <button (click)="addTask(newTaskInput.value); newTaskInput.value = ''">
+        Add Task
+      </button>
+    </div>
+  
+    <!-- Pass tasks to child component -->
+    <app-child
+      [taskList]="tasks"
+      (taskCompleted)="onTaskCompleted($event)"
+      (taskDeleted)="onTaskDeleted($event)"
+    ></app-child>
+    <router-outlet></router-outlet>
+  </div>
+  
