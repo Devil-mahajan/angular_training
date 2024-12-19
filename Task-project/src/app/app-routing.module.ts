@@ -5,12 +5,23 @@ import { CounterComponent } from './Component/counter/counter.component';
 
 import { ParentComponent } from './Component/parent/parent.component';
 import { LoginComponent } from './Component/login/login.component';
+import { ThemeSwitchComponent } from './Component/theme-switch/theme-switch.component';
+import { TransformComponent } from './Component/transform/transform.component';
+import { ViewComponent } from './Component/view/view.component';
+import { YourComponent } from './Component/your/your.component';
+import { ExerciseComponent } from './Component/exercise/exercise.component';
+
 
 const routes: Routes = [
   { path: '', component: LayoutComponent },
   { path: 'counter', component: CounterComponent },
   { path: 'parent', component: ParentComponent },
-  {path:'login' , component:LoginComponent}
+  {path:'login' , component:LoginComponent},
+  {path:'theme' , component:ThemeSwitchComponent},
+  {path:'transform' ,component:TransformComponent},
+  {path:'view' ,component:ViewComponent},
+  {path:'your' , component:YourComponent},
+  {path:'exercise',component:ExerciseComponent}
 
 
 ];

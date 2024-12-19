@@ -1,0 +1,19 @@
+<!-- <div [appTheme]="theme">
+    This is a themed element.
+  </div>
+  
+  <button (click)="toggleTheme()">Toggle Theme</button>
+   -->
+
+   <div class="container">
+    <h1>Dynamic Theme Switcher</h1>
+    
+    <!-- The div element with the ThemeDirective applied -->
+    <div [appTheme]="theme" class="theme-box">
+      <p>This is a themed box. The background and text color change based on the selected theme!</p>
+    </div>
+    
+    <!-- Button to toggle the theme between light and dark -->
+    <button (click)="toggleTheme()">Toggle Theme</button>
+  </div>
+  
