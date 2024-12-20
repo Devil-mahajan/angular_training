@@ -1,8 +1,12 @@
-
-<h1>Wlcome Angular</h1>
-<p>Your Query Param is:{{query}}</p>
-<p>Your page is:{{page}}</p>
-<app-search></app-search>
+<div class="container d-flex flex-column justify-content-center align-items-center vh-100">
+    <h1 class="display-4 text-primary mb-4">Welcome Angular</h1>
+    <p class="lead text-muted mb-3">Your Query Param is: {{ query }}</p>
+    <p class="lead text-muted mb-4">Your page is: {{ page }}</p>
+  
+    <!-- Search Component -->
+    <app-search class="mb-4"></app-search>
+  </div>
+  
 
 
 <router-outlet></router-outlet>

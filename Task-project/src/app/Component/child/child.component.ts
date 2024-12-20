@@ -14,6 +14,8 @@ export class ChildComponent {
   // Output property to notify parent about task deletion
   @Output() taskDeleted: EventEmitter<number> = new EventEmitter<number>();
 
+  @Output() editTask: EventEmitter<number> = new EventEmitter<number>()
+
   // Emit event when a task is completed
   completeTask(taskId: number): void {
     this.taskCompleted.emit(taskId);

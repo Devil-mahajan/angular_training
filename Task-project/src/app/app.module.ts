@@ -1,6 +1,6 @@
+
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './Component/Page/header/header.component';
@@ -9,7 +9,7 @@ import { LayoutComponent } from './Component/Page/layout/layout.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CounterComponent } from './Component/counter/counter.component';
 import { CountParentComponent } from './Component/count-parent/count-parent.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ChildComponent } from './Component/child/child.component';
 import { ParentComponent } from './Component/parent/parent.component';
 import { LoginComponent } from './Component/login/login.component';
@@ -24,6 +24,9 @@ import { YourComponent } from './Component/your/your.component';
 import { SearchComponent } from './Component/search/search.component';
 import { FormComponent } from './Component/form/form.component';
 import { ExerciseComponent } from './Component/exercise/exercise.component';
+
+
+
 
 @NgModule({
   declarations: [
@@ -47,12 +50,14 @@ import { ExerciseComponent } from './Component/exercise/exercise.component';
     SearchComponent,
     FormComponent,
     ExerciseComponent,
+   
   ],
 
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule,FormsModule
+    NgbModule, FormsModule,ReactiveFormsModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

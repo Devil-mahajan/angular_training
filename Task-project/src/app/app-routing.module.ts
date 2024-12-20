@@ -13,17 +13,22 @@ import { ExerciseComponent } from './Component/exercise/exercise.component';
 
 
 const routes: Routes = [
-  { path: '', component: LayoutComponent },
-  { path: 'counter', component: CounterComponent },
-  { path: 'parent', component: ParentComponent },
+  { 
+    path: '', component: LayoutComponent , children:[
+
+      { path: 'counter', component: CounterComponent },
+      { path: 'parent', component: ParentComponent },
+     
+      {path:'theme' , component:ThemeSwitchComponent},
+      {path:'transform' ,component:TransformComponent},
+      {path:'view' ,component:ViewComponent},
+      {path:'your' , component:YourComponent},
+      {path:'exercise',component:ExerciseComponent}
+    
+    ]
+
+  },
   {path:'login' , component:LoginComponent},
-  {path:'theme' , component:ThemeSwitchComponent},
-  {path:'transform' ,component:TransformComponent},
-  {path:'view' ,component:ViewComponent},
-  {path:'your' , component:YourComponent},
-  {path:'exercise',component:ExerciseComponent}
-
-
 ];
 
 @NgModule({

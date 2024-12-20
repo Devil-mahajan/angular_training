@@ -5,7 +5,7 @@
     <div>
       <input #newTaskInput type="text" placeholder="Enter a new task" />
       <button (click)="addTask(newTaskInput.value); newTaskInput.value = ''">
-        Add Task
+        <i class="fa-regular fa-address-book"></i>
       </button>
     </div>
   
@@ -14,6 +14,7 @@
       [taskList]="tasks"
       (taskCompleted)="onTaskCompleted($event)"
       (taskDeleted)="onTaskDeleted($event)"
+   
     ></app-child>
     <router-outlet></router-outlet>
   </div>
