@@ -132,6 +132,7 @@
             </div>
         </div>
     </div>
+
     <div class="card mt-4 p-4 col-md-12">
         <h3 class="text-center mb-4"> Reactive forms example</h3>
         <button (click)="applyValidationOfPattern()">Apply validations of pattern</button>
@@ -203,8 +204,15 @@
                 <!-- State -->
                 <div class="col-sm-6 form-group">
                     <label for="State">State</label>
-                    <input type="text" class="form-control" formControlName="state" id="State"
-                        placeholder="Enter your state name." />
+                        <select formControlName="state" class="form-control custom-select">
+                            <option value="" disabled>Select States</option>
+                            <option *ngFor="let item of States" [value]="item.name">
+    
+                                {{item.name}}
+                            
+                            </option>
+                           
+                        </select>
                     <small class="text-danger"
                         *ngIf="form.get('state')?.touched && form.get('state')?.errors?.['required']">
                         State is required.
@@ -229,9 +237,12 @@
                     <label for="Country">Country</label>
                     <select formControlName="country" class="form-control custom-select">
                         <option value="" disabled>Select Country</option>
-                        <option value="Afghanistan">Afghanistan</option>
-                        <option value="United States">United States</option>
-                        <option value="India">India</option>
+                        <option *ngFor="let country of countries" [value]="country.isoCode">
+
+                            {{country.name}}
+                        
+                        </option>
+                       
                     </select>
                     <small class="text-danger"
                         *ngIf="form.get('country')?.touched && form.get('country')?.errors?.['required']">

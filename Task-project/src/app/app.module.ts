@@ -23,6 +23,7 @@ import { BoxComponent } from './Component/box/box.component';
 import { YourComponent } from './Component/your/your.component';
 import { SearchComponent } from './Component/search/search.component';
 import { FormComponent } from './Component/form/form.component';
+import {HttpClientModule} from '@angular/common/http';
 import { ExerciseComponent } from './Component/exercise/exercise.component';
 
 
@@ -51,12 +52,14 @@ import { ExerciseComponent } from './Component/exercise/exercise.component';
     FormComponent,
     ExerciseComponent,
    
+   
   ],
 
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule, FormsModule,ReactiveFormsModule,
+    HttpClientModule
     
   ],
   providers: [],

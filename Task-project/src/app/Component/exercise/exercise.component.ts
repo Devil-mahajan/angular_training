@@ -1,7 +1,7 @@
-
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { passwordMatchValidator } from 'src/app/validator/password-match-validator';
+import { CountryService } from '../services/country.service';
 
 @Component({
   selector: 'app-exercise',
@@ -15,9 +15,9 @@ export class ExerciseComponent implements OnInit {
   isSubmittedSignUp: boolean = false;
   form: FormGroup | any;
   addvalidation: boolean = false;
-  
-
-
+  countries: any = [];
+  States: any = [];
+  isStatesDroopdownVisible: boolean = false;
 
   // dummyData = {
   // fname: "John", // Valid name with at least 2 characters
@@ -35,14 +35,17 @@ export class ExerciseComponent implements OnInit {
   // confirmPassword: "password123" // Matches the password field
   //  };
 
-
-
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private countrySevrice: CountryService) { }
 
 
   ngOnInit(): void {
-    console.log('ASzSAZA');
-    
+    this.initializeForm();
+    this.loadCountries();
+    this.listenToCountryChange()
+    this.onSubmitReactive()
+
+  }
+  initializeForm() {
     this.form = this.fb.group(
       {
         fname: ["", [Validators.required, Validators.minLength(2)]],
@@ -61,17 +64,29 @@ export class ExerciseComponent implements OnInit {
       },
 
       { validators: passwordMatchValidator('password', 'confirmPassword') }
+
     );
+  }
 
 
+  loadCountries() {
+    this.countries = this.countrySevrice.getAllCountries();
+  }
 
-    // this.form.get('fname').valueChanges.subscribe((forms:any)=>{
-    // console.log(forms);
-    //  })
+  listenToCountryChange() {
+    this.form.get('country').valueChanges.subscribe(
+      (countryCode: string) => {
+        if (countryCode) {
+          this.loadStates(countryCode);
+          this.isStatesDroopdownVisible = true;
+        }
+        else {
+          this.States = [];
+          this.isStatesDroopdownVisible = false;
 
-
-    // this.form.patchValue(this.dummyData)
-
+        }
+      }
+    )
   }
 
   onSubmit(form: NgForm, type: string) {
@@ -81,11 +96,18 @@ export class ExerciseComponent implements OnInit {
 
 
   onSubmitReactive() {
-    // this.signal.setData(this.form.value)
-    console.log(this.form.value)
-    
-  }
+    if(!this.form.valid){
+      console.log("invalid form" , this.form) 
+    }
+    else{
+      console.log(this.form.value)
+      localStorage.setItem("formData",JSON.stringify(this.form.value));
+      // localStorage.removeItem();
+      this.countrySevrice.userSubject.next(this.form.value)
+    }
+    this.countrySevrice.behaviorSubject.next('updated value')
 
+  }
 
   applyValidationOfPattern() {
     this.addvalidation = !this.addvalidation;
@@ -99,9 +121,23 @@ export class ExerciseComponent implements OnInit {
 
   }
 
+
+  loadStates(countryCode: string) {
+    this.States = this.countrySevrice.getStatesOfCountry(countryCode);
+  }
+
+
 }
 
- 
+
+
+
+
+
+
+
+
+
 
 
 
