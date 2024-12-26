@@ -1,0 +1,22 @@
+.dashboard {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+  
+  .card {
+    width: 200px;
+    height: 150px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    text-align: center;
+    padding: 10px;
+    background-color: #f9f9f9;
+  }
+  
+  #pieChart {
+    margin: auto;
+    display: block;
+  }
+  
